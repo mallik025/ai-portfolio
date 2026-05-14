@@ -1,0 +1,70 @@
+---
+import type { Solution } from '../data/solutions';
+import { statusConfig } from '../data/solutions';
+
+interface Props {
+  solution: Solution;
+}
+
+const { solution } = Astro.props;
+const { label, classes } = statusConfig[solution.status];
+const hasDemo = Boolean(solution.demoUrl && solution.demoUrl !== '#');
+const hasGitHub = Boolean(solution.githubUrl);
+---
+
+<article class="card-hover group rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 flex flex-col shadow-sm hover:shadow-xl hover:shadow-brand-500/10 hover:border-brand-200 dark:hover:border-brand-700/50">
+  <div class="flex items-start justify-between mb-4">
+    <div class={`w-11 h-11 rounded-xl ${solution.iconBg} flex items-center justify-center text-xl`}>
+      {solution.icon}
+    </div>
+    <span class={`inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full ${classes}`}>
+      {label}
+    </span>
+  </div>
+
+  <h3 class="font-semibold text-base text-gray-900 dark:text-white mb-1">{solution.name}</h3>
+  <p class="text-xs text-brand-500 dark:text-brand-400 font-medium mb-3">{solution.tagline}</p>
+  <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-1 mb-4">
+    {solution.description}
+  </p>
+
+  <div class="flex flex-wrap gap-1.5 mb-5">
+    {solution.tags.map((tag) => (
+      <span class="text-xs font-medium px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400 border border-brand-100 dark:border-brand-800">
+        {tag}
+      </span>
+    ))}
+  </div>
+
+  <div class="flex gap-2 mt-auto">
+    {hasDemo ? (
+      <a
+        href={solution.demoUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex-1 text-center text-xs font-medium py-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-white transition-colors"
+      >
+        Live Demo
+      </a>
+    ) : (
+      <span class="flex-1 text-center text-xs font-medium py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed select-none">
+        Coming Soon
+      </span>
+    )}
+
+    {hasGitHub ? (
+      <a
+        href={solution.githubUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex-1 text-center text-xs font-medium py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+      >
+        GitHub
+      </a>
+    ) : (
+      <span class="flex-1 text-center text-xs font-medium py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed select-none">
+        GitHub
+      </span>
+    )}
+  </div>
+</article>
