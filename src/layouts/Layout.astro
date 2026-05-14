@@ -25,15 +25,40 @@ const {
     <style>
       .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
       .card-hover:hover { transform: translateY(-4px); }
+
       .gradient-text {
-        background: linear-gradient(135deg, #4f72f5, #7b9cff);
+        background: linear-gradient(135deg, #3b5bdb 0%, #6c47ff 50%, #9b59f5 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
       .hero-bg {
-        background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,114,245,0.15) 0%, transparent 60%);
+        background:
+          radial-gradient(ellipse 90% 70% at 50% -5%,  rgba(79,114,245,0.18) 0%, transparent 55%),
+          radial-gradient(ellipse 50% 40% at 80% 10%,  rgba(108,71,255,0.10) 0%, transparent 50%),
+          radial-gradient(ellipse 50% 40% at 20% 15%,  rgba(59,91,219,0.08) 0%, transparent 50%);
       }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b5bdb, #6c47ff);
+        box-shadow: 0 4px 20px rgba(108,71,255,0.35);
+        transition: filter 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.1);
+        box-shadow: 0 6px 24px rgba(108,71,255,0.45);
+      }
+
+      .nav-logo {
+        background: linear-gradient(135deg, #3b5bdb, #6c47ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Ensure brand opacity variants compile */
+      .brand-ring { box-shadow: 0 0 0 3px rgba(108,71,255,0.3); }
     </style>
   </head>
   <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
