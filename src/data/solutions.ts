@@ -30,7 +30,7 @@ export const solutions: Solution[] = [
     accent: { light: '#b45309', dark: '#fbbf24' },
     tags: ['Playwright', 'Claude AI', 'MCP', 'FastAPI', 'pytest'],
     status: 'live',
-    demoUrl: '',
+    demoUrl: 'http://localhost:8000/',
     githubUrl: '',
   },
   {
