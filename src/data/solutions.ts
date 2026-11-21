@@ -75,12 +75,12 @@ export const solutions: Solution[] = [
   },
   {
     name: 'Playmind AI',
-    tagline: 'AI-powered interactive experiences',
+    tagline: 'Browser tests from plain English',
     description:
-      'AI-powered interactive experience platform. Details coming soon.',
-    icon: '🎮',
+      'Describe a test in plain English and Claude turns it into Playwright steps. Broken selectors heal themselves from cached alternatives, and logs stream live to a web UI. Every run exports a reusable pytest script, and an MCP server lets Claude create and run tests directly.',
+    icon: '🎭',
     iconBg: 'bg-pink-50 dark:bg-pink-900/20',
-    tags: ['AI', 'Python'],
+    tags: ['Playwright', 'Claude AI', 'MCP', 'FastAPI', 'pytest'],
     status: 'live',
     demoUrl: '',
     githubUrl: '',
